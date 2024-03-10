@@ -1,0 +1,43 @@
+import random
+#import janela
+
+while True:
+    
+    print (22 * '=')
+    print('SURPRESINHA LOTOFÁCIL')
+    print(22 * '=')
+
+    qtd_jogos = input('Quantos jogos deseja fazer (mín 1, máx 10):')
+    qtd_números = input('Quantos números por jogos você deseja (mín 15, máx 20): ')
+    
+    if qtd_jogos.isdigit() and qtd_números.isdigit() :
+        jogos_int = int(qtd_jogos)
+        números_int = int(qtd_números)
+        if jogos_int <= 10 and números_int >= 15 and números_int <21:
+           pass
+        else:
+            print('jogos mín. 1 máx.10 / números por jogos mín. 15 máx. 20')
+            continue
+    else:
+        print('Digite um número válido.')
+        continue   
+    
+
+    for c in range(1,jogos_int + 1):
+        
+        numero_sorteado = []
+
+        while len(numero_sorteado) < números_int:
+            
+            R = random.randint(1,25)
+            if R in numero_sorteado:
+                continue
+            else:
+                numero_sorteado.append (R)
+        
+        print(f'Jogo {c}: {numero_sorteado}')
+        print('')
+    print('BOA SORTE!!!')
+    sair = input('Deja fazer outro jogo? [S]im, [N]ão: ').lower().startswith('n')
+    if sair:
+        break
